@@ -1,0 +1,13 @@
+C:\Users\chuck\Documents\Visual Studio 2013\WpfDemo1\WpfDemo1\bin\Debug\WpfDemo1.exe.config
+C:\Users\chuck\Documents\Visual Studio 2013\WpfDemo1\WpfDemo1\bin\Debug\WpfDemo1.exe
+C:\Users\chuck\Documents\Visual Studio 2013\WpfDemo1\WpfDemo1\bin\Debug\WpfDemo1.pdb
+C:\Users\chuck\Documents\Visual Studio 2013\WpfDemo1\WpfDemo1\obj\Debug\WpfDemo1.csprojResolveAssemblyReference.cache
+C:\Users\chuck\Documents\Visual Studio 2013\WpfDemo1\WpfDemo1\obj\Debug\MainWindow.baml
+C:\Users\chuck\Documents\Visual Studio 2013\WpfDemo1\WpfDemo1\obj\Debug\MainWindow.g.cs
+C:\Users\chuck\Documents\Visual Studio 2013\WpfDemo1\WpfDemo1\obj\Debug\App.g.cs
+C:\Users\chuck\Documents\Visual Studio 2013\WpfDemo1\WpfDemo1\obj\Debug\WpfDemo1_MarkupCompile.cache
+C:\Users\chuck\Documents\Visual Studio 2013\WpfDemo1\WpfDemo1\obj\Debug\WpfDemo1.g.resources
+C:\Users\chuck\Documents\Visual Studio 2013\WpfDemo1\WpfDemo1\obj\Debug\WpfDemo1.Properties.Resources.resources
+C:\Users\chuck\Documents\Visual Studio 2013\WpfDemo1\WpfDemo1\obj\Debug\WpfDemo1.csproj.GenerateResource.Cache
+C:\Users\chuck\Documents\Visual Studio 2013\WpfDemo1\WpfDemo1\obj\Debug\WpfDemo1.exe
+C:\Users\chuck\Documents\Visual Studio 2013\WpfDemo1\WpfDemo1\obj\Debug\WpfDemo1.pdb
