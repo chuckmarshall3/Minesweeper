@@ -28,17 +28,16 @@ namespace WpfDemo1
         public const string mine = "99";
         public const string field = "0";
 
+        int height = 0;
+        int width = 0;
+
         //Board Constructor
         public Board(int height, int width, int totalMines, double windowwidth, double windowheight)
         {
-           
+
             //Declare 2D array
             boardarray = new Button[height, width];
 
-
-         
-            //Width = 400;
-            //Height = 320;
             HorizontalAlignment = HorizontalAlignment.Center;
             VerticalAlignment = VerticalAlignment.Center;
             //ShowGridLines = true;
@@ -64,7 +63,7 @@ namespace WpfDemo1
                 {
 
                     Button button = new Button();
-                    button.Content = "0";
+                    button.Content = " ";
                     button.Height = 25;
                     button.Width = 25;
                     button.Tag = "0";
@@ -106,11 +105,11 @@ namespace WpfDemo1
 
             if (boardarray[row, col].Tag == mine)
             {
-                row--;
-                return row;
+                i--;
+                return i;
             }
 
-            boardarray[row, col].Content = mine;
+            //boardarray[row, col].Content = mine;
             boardarray[row, col].Tag = mine;
             return i;
 
@@ -155,6 +154,29 @@ namespace WpfDemo1
 
 
         }
+
+
+        //Calculate Neighbor Values
+        public void blowbombs()
+        {
+            //row=i, col=j
+            for (int row = 0; row < 16; row++)
+            {
+                for (int col = 0; col < 16; col++)
+                {
+                    if (boardarray[row, col].Tag == mine)
+                    {
+                        boardarray[row, col].Content = "\u1360";
+                    }
+
+                    boardarray[row, col].IsEnabled = false;
+                }
+
+            }
+
+
+        }
+
 
 
         //Calculate Nieghbor Values Method
@@ -204,7 +226,7 @@ namespace WpfDemo1
 
             if (neighbors > 0)
             {
-                boardarray[row, col].Content = neighbors.ToString();
+                //boardarray[row, col].Content = neighbors.ToString();
                 boardarray[row, col].Tag = neighbors.ToString();
               
 
@@ -414,20 +436,47 @@ namespace WpfDemo1
                 floodFill2(row,col);
                 //floodfill(row, col);
                
-                Console.WriteLine("Space");
+                //Console.WriteLine("Space");
                 button.IsEnabled = false;
 
             }
             else if (btn == 99)
             {
-                boardarray[row, col].Content = "*";
-                //MessageBox.Show("Game Over");
-                Console.WriteLine("Mine");
+                blowbombs();
+                boardarray[row, col].Content = "\u1360";
+                MessageBox.Show("Game Over");
+                
+
+
+                //Console.WriteLine("Mine");
             }
             else
             {
                 boardarray[row, col].Content = btn;
-                
+                if (btn == 1)
+                {
+                    boardarray[row, col].Foreground = new SolidColorBrush(Colors.Yellow);
+                }
+                else if (btn == 2)
+                {
+                    boardarray[row, col].Foreground = new SolidColorBrush(Colors.Red );
+                }
+                else if (btn == 3)
+                {
+                    boardarray[row, col].Foreground = new SolidColorBrush(Colors.RoyalBlue);
+                }
+                else if (btn == 4)
+                {
+                    boardarray[row, col].Foreground = new SolidColorBrush(Colors.Purple);
+                }
+                else if (btn == 5)
+                {
+                    boardarray[row, col].Foreground = new SolidColorBrush(Colors.Green);
+                }
+                else if (btn == 6)
+                {
+                    boardarray[row, col].Foreground = new SolidColorBrush(Colors.Orange);
+                }               
                 Console.WriteLine(btn);
             }
             
@@ -442,6 +491,20 @@ namespace WpfDemo1
             Button button = (Button)sender;
             int col = Grid.GetColumn(button);
             int row = Grid.GetRow(button);
+
+            if (boardarray[row, col].Content != "99")
+            {
+                boardarray[row, col].Content = "99";
+            }
+            else
+            {
+                boardarray[row, col].Content = '\u16A9';
+            }
+
+
+            
+
+
 
             Console.WriteLine("R: {0} x {1}", row, col);
 
