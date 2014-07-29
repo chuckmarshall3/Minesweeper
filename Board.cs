@@ -284,14 +284,18 @@ namespace WpfDemo1
                 if (boardarray[row, col + 1].IsEnabled == true && boardarray[row, col + 1].Tag == "0")
                 {
 
-                    boardarray[row, col + 1].Content = boardarray[row, col + 1].Tag;
+                    //boardarray[row, col + 1].Content = boardarray[row, col + 1].Tag;
                     boardarray[row, col + 1].IsEnabled = false;
                     floodFill2(row, col + 1);
 
                     Console.WriteLine("Flood: {0} x {1}", row, col+1);
                     Console.WriteLine(boardarray[row, col + 1].Tag);
                 }
-
+                if (boardarray[row, col + 1].IsEnabled == true && Int32.Parse((boardarray[row, col + 1].Tag).ToString()) > 0 && Int32.Parse((boardarray[row, col + 1].Tag).ToString()) < 99)
+                {
+                    boardarray[row, col + 1].Content = boardarray[row, col + 1].Tag;
+                    boardarray[row, col + 1].IsEnabled = false;
+                }
 
             }
 
@@ -302,13 +306,18 @@ namespace WpfDemo1
                 if (boardarray[row, col - 1].IsEnabled == true && boardarray[row, col - 1].Tag == "0")
                 {
 
-                    boardarray[row, col - 1].Content = boardarray[row, col - 1].Tag;
+                    //boardarray[row, col - 1].Content = boardarray[row, col - 1].Tag;
                     boardarray[row, col - 1].IsEnabled = false;
                     floodFill2(row, col - 1);
 
                     Console.WriteLine("Flood: {0} x {1}", row, col - 1);
                     Console.WriteLine(boardarray[row, col - 1].Tag);
 
+                }
+                if (boardarray[row, col - 1].IsEnabled == true && Int32.Parse((boardarray[row, col - 1].Tag).ToString()) > 0 && Int32.Parse((boardarray[row, col - 1].Tag).ToString()) < 99)
+                {
+                    boardarray[row, col - 1].Content = boardarray[row, col - 1].Tag;
+                    boardarray[row, col - 1].IsEnabled = false;
                 }
 
             }
@@ -320,13 +329,18 @@ namespace WpfDemo1
                 if (boardarray[row + 1, col].IsEnabled == true && boardarray[row + 1, col].Tag == "0")
                 {
 
-                    boardarray[row + 1, col].Content = boardarray[row + 1, col].Tag;
+                    //boardarray[row + 1, col].Content = boardarray[row + 1, col].Tag;
                     boardarray[row + 1, col].IsEnabled = false;
                     floodFill2(row + 1, col);
 
                     Console.WriteLine("Flood: {0} x {1}", row+1, col);
                     Console.WriteLine(boardarray[row + 1, col].Tag);
 
+                }
+                if (boardarray[row + 1, col].IsEnabled == true && Int32.Parse((boardarray[row + 1, col].Tag).ToString()) > 0 && Int32.Parse((boardarray[row + 1, col].Tag).ToString()) < 99)
+                {
+                    boardarray[row + 1, col].Content = boardarray[row + 1, col].Tag;
+                    boardarray[row + 1, col].IsEnabled = false;
                 }
 
             }
@@ -338,7 +352,7 @@ namespace WpfDemo1
                 if (boardarray[row - 1, col].IsEnabled == true && boardarray[row - 1, col].Tag == "0")
                 {
 
-                    boardarray[row - 1, col].Content = boardarray[row - 1, col].Tag;
+                    //boardarray[row - 1, col].Content = boardarray[row - 1, col].Tag;
                     boardarray[row - 1, col].IsEnabled = false;
                     floodFill2(row - 1, col);
 
@@ -346,66 +360,13 @@ namespace WpfDemo1
                     Console.WriteLine(boardarray[row - 1, col].Tag);
 
                 }
-
-            }
-
-            //Diagonals
-            if (row - 1 >= 0 && col - 1 >= 0)
-            {
-                if (boardarray[row - 1, col - 1].IsEnabled == true && boardarray[row - 1, col - 1].Tag == "0")
+                if (boardarray[row - 1, col].IsEnabled == true && Int32.Parse((boardarray[row - 1, col].Tag).ToString()) > 0 && Int32.Parse((boardarray[row - 1, col].Tag).ToString()) < 99)
                 {
-                    boardarray[row - 1, col - 1].Content = boardarray[row - 1, col - 1].Tag;
-                    boardarray[row - 1, col - 1].IsEnabled = false;
-                    floodFill2(row - 1, col - 1 );
-
-                    Console.WriteLine("Flood: {0} x {1}", row - 1, col - 1);
-                    Console.WriteLine(boardarray[row - 1, col - 1].Tag);
+                    boardarray[row - 1, col].Content = boardarray[row - 1, col].Tag;
+                    boardarray[row - 1, col].IsEnabled = false;
                 }
 
             }
-
-            if (row - 1 >= 0 && col + 1 < boardwidth)
-            {
-
-                if (boardarray[row - 1, col + 1].IsEnabled == true && boardarray[row - 1, col + 1].Tag == "0")
-                {
-                    boardarray[row - 1, col + 1].Content = boardarray[row - 1, col + 1].Tag;
-                    boardarray[row - 1, col + 1].IsEnabled = false;
-                    floodFill2(row - 1, col + 1 );
-
-                    Console.WriteLine("Flood: {0} x {1}", row - 1, col + 1);
-                    Console.WriteLine(boardarray[row - 1, col + 1].Tag);
-                }
-            }
-
-            if (row + 1 < boardheight && col - 1 >= 0)
-            {
-
-                if (boardarray[row + 1, col - 1].IsEnabled == true && boardarray[row + 1, col - 1].Tag == "0")
-                {
-                    boardarray[row + 1, col - 1].Content = boardarray[row + 1, col - 1].Tag;
-                    boardarray[row + 1, col - 1].IsEnabled = false;
-                    floodFill2(row + 1, col - 1);
-
-                    Console.WriteLine("Flood: {0} x {1}", row + 1, col - 1);
-                    Console.WriteLine(boardarray[row + 1, col - 1].Tag);
-                }
-            }
-
-            if (row + 1 < boardheight && col + 1 < boardwidth)
-            {
-                if (boardarray[row + 1, col + 1].IsEnabled == true && boardarray[row + 1, col + 1].Tag == "0")
-                {
-                    boardarray[row + 1, col + 1].Content = boardarray[row + 1, col + 1].Tag;
-                    boardarray[row + 1, col + 1].IsEnabled = false;
-                    floodFill2(row + 1, col + 1);
-
-                    Console.WriteLine("Flood: {0} x {1}", row + 1, col + 1);
-                    Console.WriteLine(boardarray[row + 1, col + 1].Tag);
-                }
-            }
-
-
 
 
         }
@@ -432,12 +393,12 @@ namespace WpfDemo1
             //boardarray[col, row].Content = boardarray[col, row].Tag.ToString();
             if (btn == 0)
             {
-                boardarray[row, col].Content = "0";
+                boardarray[row, col].Content = " ";
                 floodFill2(row,col);
                 //floodfill(row, col);
                
                 //Console.WriteLine("Space");
-                button.IsEnabled = false;
+                
 
             }
             else if (btn == 99)
@@ -491,20 +452,18 @@ namespace WpfDemo1
             Button button = (Button)sender;
             int col = Grid.GetColumn(button);
             int row = Grid.GetRow(button);
+            string c = "\u16A9";
 
-            if (boardarray[row, col].Content != "99")
-            {
-                boardarray[row, col].Content = "99";
-            }
-            else
-            {
-                boardarray[row, col].Content = '\u16A9';
-            }
-
+                if (boardarray[row, col].Content.ToString() == c.ToString())
+                {
+                    boardarray[row, col].Content = " ";
+                }
+                else if (boardarray[row, col].Content == " ")
+                {
+                    boardarray[row, col].Content = c;
+                }
 
             
-
-
 
             Console.WriteLine("R: {0} x {1}", row, col);
 
