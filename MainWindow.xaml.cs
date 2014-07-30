@@ -31,73 +31,78 @@ namespace WpfDemo1
         public MainWindow()
         {
             InitializeComponent();
+    
 
-            int height = 16;
-            int width = 16;
-            int totalMines = 30;
-            double Height = 400;
-            double Width = 320;
+            int height = 9;
+            int width = 9;
+            int totalMines = 10;
+           
 
-            Board brd = new Board(height, width, totalMines, Width, Height); //Build Board
-
-
-            
-            //Adding to form
+            GamePanel.Children.Clear();
+            brd = new Board(height, width, totalMines, this.bcount, this.timer);
             GamePanel.Children.Add(brd);
 
 
         }
         private void NewGameEasy(object sender, RoutedEventArgs e)
         {
-            //SystemSounds.Beep.Play();
+            brd = null;
+            
+            bcount.Text = "0";
+            int height = 9;
+            int width = 9;
+            int totalMines = 10;
+            object minecount = bcount;
 
-            int height = 16;
-            int width = 16;
-            int totalMines = 30;
-            double Height = 400;
-            double Width = 320;
 
 
             //Button btn = (Button)sender;
             GamePanel.Children.Clear();
-            brd = new Board(height, width, totalMines, Width, Height);
+            brd = new Board(height, width, totalMines, this.bcount, this.timer);
             GamePanel.Children.Add(brd);
 
         }
 
         private void NewGameMedium(object sender, RoutedEventArgs e)
         {
+            brd = null;
+            bcount.Text = "0";
 
+            int height = 16;
+            int width = 16;
+            int totalMines = 40;
+            object minecount = bcount;
 
-            int height = 32;
-            int width = 32;
-            int totalMines = 50;
-            double Height = 600;
-            double Width = 520;
+            
 
             GamePanel.Children.Clear();
-            brd = new Board(height, width, totalMines, Width, Height);
+            brd = new Board(height, width, totalMines, this.bcount, this.timer);
             GamePanel.Children.Add(brd);
 
         }
 
         private void NewGameHard(object sender, RoutedEventArgs e)
         {
+            brd = null;
+            bcount.Text = "0";
 
-
-            int height = 48;
-            int width = 48;
-            int totalMines = 60;
-            double Height = 800;
-            double Width = 720;
+            int height = 16;
+            int width = 30;
+            int totalMines = 99;
+            object minecount = bcount;
+           
 
 
             GamePanel.Children.Clear();
-            brd = new Board(height, width, totalMines, Width, Height);
+            brd = new Board(height, width, totalMines, this.bcount, this.timer);
             GamePanel.Children.Add(brd);
 
         }
 
+        public void updateminecount(int minecount)
+        {
+            bcount.Text = minecount.ToString();
+        }
 
 
 
